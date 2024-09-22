@@ -1,31 +1,33 @@
 ---
+import { literal } from "astro:schema"
 import ExperienceItem from "./ExperienceItem.astro"
 
 const EXPERIENCE = [
-    {
-        date: '2023',
-        title: 'Backend Developer at Argatio',
-        description: 'Spearheaded the development of a scalable Node.js/TypeScript backend, reducing server response times by 20%.'
-    },
-    {
-        date: '2024',
-        title: 'Backend Developer Freelance',
-        description: 'Architected RESTful APIs using Ruby on Rails, improving data retrieval speed by 35%.'
-    },
-    {
-        date: '2024',
-        title: 'Backend Developer at Dream Junk',
-        description: 'Optimized database queries and implemented caching strategies in a JavaScript/TypeScript environment, reducing API response times by 40%.',
-    }
-]
+  {
+    date: '2024',
+    title: 'Backend Developer at Dream Junk',
+    description: 'Optimized database queries and implemented caching strategies in a JavaScript/TypeScript environment, reducing API response times by 40%. And also, collaborated as Backend in more than 3 proyects',
+  },
+  {
+    date: '2024',
+    title: 'Backend Developer Freelance',
+    description: 'Architected RESTful APIs using Ruby on Rails, improving data retrieval speed by 35%.'
+  },
+  {
+    date: '2023',
+    title: 'Backend Developer at Argatio',
+    description: 'Spearheaded the development of a scalable Node.js/TypeScript backend, reducing server response times by 20%.',
+    link: "http://argatio.com/"
+  }
+  ]
 ---
-<ol class="relative border-s border-gray-200 dark:border-gray-700">
-    {
-        EXPERIENCE.map(experience => (
-            <li class="mb-10 ms-4">
-                <ExperienceItem {...experience} />
-            </li>
-        ))
-    }
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    EXPERIENCE.map(experience => (
+    <li class="mb-10 ms-4">
+      <ExperienceItem {...experience} />
+    </li>
+    ))
+  }
 </ol>
 
