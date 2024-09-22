@@ -1,0 +1,69 @@
+---
+import RubyIcon from './icons/Ruby.astro'
+import RailsIcon from './icons/Rails.astro'
+import GoogleIcon from './icons/Google.astro'
+import CsvIcon from './icons/Csv.astro'
+
+const TAGS = {
+  RUBY: {
+    name: "Ruby",
+    class: "bg-red-500/80 text-white",
+    icon: RubyIcon
+  },
+
+  RAILS: {
+    name: "Ruby on Rails",
+    class: "bg-sky-100/40 text-white",
+    icon: RailsIcon
+  },
+  
+  GOOGLE_CIVIC_INFORMATION_API: {
+    name: "Google Civic API",
+    class: "bg-blue-500/80 text-white",
+    icon: GoogleIcon
+  },
+
+  CSV: {
+    name: "CSV",
+    class: "bg-green-500/80 text-white",
+    icon: CsvIcon
+  },
+}
+
+const PROJECTS = [
+  {
+    title: "Event Manager - Analyzing Event Registrations",
+    description: "Developed a Ruby-based event management solution that processes registration data from a CSV file, retrieves legislators using the Google Civic Information API, generates personalized thank-you letters, and analyzes registration times to identify peak hours and days. This project showcases proficiency in Ruby, API integration, data processing, and template rendering.",
+    link: "https://",
+    github: "https://github.com/Sandotech/event_manager",
+    image: "/projects/event-manager.png",
+    tags: [TAGS.RUBY, TAGS.GOOGLE_CIVIC_INFORMATION_API, TAGS.CSV]
+  }
+]
+---
+
+{
+  PROJECTS.map(({ title, description, tags, image }) => (
+    <article>
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-2 flex-row pb-3">
+        {tags.map((tag) => (
+            <li>
+              <span 
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`} 
+              >
+                <tag.icon class="size-4"/>
+                {tag.name}
+              </span>
+            </li>
+          ))  }
+      </ul>
+      <img
+        class="rounded shadow-2xl shadow-white/10"
+        src={image} 
+        alt={`Screenshot of the project ${title}`}
+      >
+    </article>
+  ))
+}
