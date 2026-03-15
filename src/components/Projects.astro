@@ -3,6 +3,15 @@ import RubyIcon from './icons/Ruby.astro'
 import RailsIcon from './icons/Rails.astro'
 import GoogleIcon from './icons/Google.astro'
 import CsvIcon from './icons/Csv.astro'
+import TypeScriptIcon from './icons/TypeScript.astro'
+import NodeJsIcon from './icons/NodeJs.astro'
+import NestJSIcon from './icons/NestJS.astro'
+import ReactIcon from './icons/React.astro'
+import RedisIcon from './icons/Redis.astro'
+import PostgreSQLIcon from './icons/PostgreSQL.astro'
+import PrismaIcon from './icons/Prisma.astro'
+import JWTIcon from './icons/JWT.astro'
+import GithubIcon from './icons/Github.astro'
 
 const TAGS = {
   RUBY: {
@@ -10,60 +19,135 @@ const TAGS = {
     class: "bg-red-500/80 text-white",
     icon: RubyIcon
   },
-
   RAILS: {
     name: "Ruby on Rails",
     class: "bg-sky-100/40 text-white",
     icon: RailsIcon
   },
-  
   GOOGLE_CIVIC_INFORMATION_API: {
     name: "Google Civic API",
     class: "bg-blue-500/80 text-white",
     icon: GoogleIcon
   },
-
   CSV: {
     name: "CSV",
     class: "bg-green-500/80 text-white",
     icon: CsvIcon
   },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-blue-600/80 text-white",
+    icon: TypeScriptIcon
+  },
+  NODEJS: {
+    name: "Node.js",
+    class: "bg-green-700/80 text-white",
+    icon: NodeJsIcon
+  },
+  NESTJS: {
+    name: "NestJS",
+    class: "bg-rose-700/80 text-white",
+    icon: NestJSIcon
+  },
+  REACT: {
+    name: "React",
+    class: "bg-cyan-600/80 text-white",
+    icon: ReactIcon
+  },
+  REDIS: {
+    name: "Redis",
+    class: "bg-red-600/80 text-white",
+    icon: RedisIcon
+  },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    class: "bg-indigo-600/80 text-white",
+    icon: PostgreSQLIcon
+  },
+  PRISMA: {
+    name: "Prisma",
+    class: "bg-slate-600/80 text-white",
+    icon: PrismaIcon
+  },
+  JWT: {
+    name: "JWT",
+    class: "bg-pink-700/80 text-white",
+    icon: JWTIcon
+  },
 }
 
 const PROJECTS = [
   {
-    title: "Event Manager - Analyzing Event Registrations",
-    description: "Developed a Ruby-based event management solution that processes registration data from a CSV file, retrieves legislators using the Google Civic Information API, generates personalized thank-you letters, and analyzes registration times to identify peak hours and days. This project showcases proficiency in Ruby, API integration, data processing, and template rendering.",
-    link: "https://",
+    title: "Feature Flag Platform",
+    description: "End-to-end feature flag system built as a monorepo: a REST API (Express + Prisma + MySQL + Redis) paired with a zero-dependency TypeScript SDK. Supports environment-scoped flags (dev/qa/prod), Redis caching for low-latency lookups, and a clean SDK API — isEnabled(), getFlag(), listFlags() — ready to drop into any Node.js project.",
+    github: "https://github.com/Sandotech/feature-flag",
+    image: "/projects/feature-flag.png",
+    tags: [TAGS.TYPESCRIPT, TAGS.NODEJS, TAGS.PRISMA, TAGS.REDIS],
+  },
+  {
+    title: "Tracli — Developer Time Tracking Ecosystem",
+    description: "Full-stack developer tooling suite: a terminal-first CLI (Commander.js, offline-first, DDD) for frictionless work logging, an Express REST API backend for cloud sync, and a React + Tailwind landing page. The CLI is published to GitHub Packages and follows clean architecture with domain, application, infrastructure, and interface layers.",
+    github: "https://github.com/Sandotech/tracli-cli",
+    image: "/projects/tracli.png",
+    tags: [TAGS.TYPESCRIPT, TAGS.NODEJS, TAGS.REACT],
+  },
+  {
+    title: "Authy — Auth Microservice",
+    description: "Production-ready authentication microservice built with NestJS and TypeScript. Implements JWT + Passport.js for stateless auth, TypeORM with PostgreSQL for user persistence, and full unit/e2e test coverage. Dockerized for local development with a docker-compose Postgres setup.",
+    github: "https://github.com/Sandotech/authy",
+    image: "/projects/authy.png",
+    tags: [TAGS.TYPESCRIPT, TAGS.NESTJS, TAGS.POSTGRESQL, TAGS.JWT],
+  },
+  {
+    title: "Event Manager — Civic Data Analyzer",
+    description: "Ruby tool that processes event registrations from CSV, calls the Google Civic Information API to retrieve local legislators, generates personalized thank-you letters via ERB templates, and reports peak registration hours and days. Demonstrates proficiency in Ruby, REST API integration, CSV data processing, and template rendering.",
     github: "https://github.com/Sandotech/event_manager",
     image: "/projects/event-manager.png",
-    tags: [TAGS.RUBY, TAGS.GOOGLE_CIVIC_INFORMATION_API, TAGS.CSV]
-  }
+    tags: [TAGS.RUBY, TAGS.GOOGLE_CIVIC_INFORMATION_API, TAGS.CSV],
+  },
 ]
 ---
 
-{
-  PROJECTS.map(({ title, description, tags, image }) => (
-    <article>
-      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
-      <p class="text-lg mb-4 text-pretty">{description}</p>
-      <ul class="flex gap-x-2 flex-row pb-3">
-        {tags.map((tag) => (
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ title, description, tags, image, github }) => (
+      <article class="flex flex-col space-y-4">
+        <header class="flex items-start justify-between gap-4">
+          <h3 class="text-2xl font-semibold text-yellow-200">{title}</h3>
+          {github && (
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-1.5 shrink-0 text-sm text-white/70 hover:text-white transition-colors"
+              aria-label={`GitHub repository for ${title}`}
+            >
+              <GithubIcon class="size-5" />
+              <span>Code</span>
+            </a>
+          )}
+        </header>
+
+        <p class="text-lg text-pretty text-white/80">{description}</p>
+
+        <ul class="flex flex-wrap gap-2">
+          {tags.map((tag) => (
             <li>
-              <span 
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`} 
-              >
-                <tag.icon class="size-4"/>
+              <span class={`flex items-center gap-x-1.5 rounded-full text-xs ${tag.class} py-1 px-3`}>
+                <tag.icon class="size-4" />
                 {tag.name}
               </span>
             </li>
-          ))  }
-      </ul>
-      <img
-        class="rounded shadow-2xl shadow-white/10"
-        src={image} 
-        alt={`Screenshot of the project ${title}`}
-      >
-    </article>
-  ))
-}
+          ))}
+        </ul>
+
+        <img
+          class="rounded-lg shadow-2xl shadow-white/10 w-full object-cover"
+          src={image}
+          alt={`Screenshot of the project ${title}`}
+          loading="lazy"
+        />
+      </article>
+    ))
+  }
+</div>
