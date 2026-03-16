@@ -1,17 +1,8 @@
 ---
-import RubyIcon from './icons/Ruby.astro'
-import RailsIcon from './icons/Rails.astro'
-import GoogleIcon from './icons/Google.astro'
-import CsvIcon from './icons/Csv.astro'
-import TypeScriptIcon from './icons/TypeScript.astro'
-import NodeJsIcon from './icons/NodeJs.astro'
-import NestJSIcon from './icons/NestJS.astro'
-import ReactIcon from './icons/React.astro'
-import RedisIcon from './icons/Redis.astro'
-import PostgreSQLIcon from './icons/PostgreSQL.astro'
-import PrismaIcon from './icons/Prisma.astro'
-import JWTIcon from './icons/JWT.astro'
-import GithubIcon from './icons/Github.astro'
+import { 
+  RubyIcon, RailsIcon, GoogleIcon, CsvIcon, TypeScriptIcon, NodeJsIcon, NestJSIcon, ReactIcon, RedisIcon, 
+  PostgreSQLIcon, PrismaIcon, JWTIcon, GithubIcon, NextJSIcon 
+} from './icons'
 
 const TAGS = {
   RUBY: {
@@ -74,6 +65,11 @@ const TAGS = {
     class: "bg-pink-700/80 text-white",
     icon: JWTIcon
   },
+  NEXTJS: {
+    name: "Next.js",
+    class: "bg-black/80 text-white",
+    icon: NextJSIcon
+  },
 }
 
 const PROJECTS = [
@@ -82,7 +78,7 @@ const PROJECTS = [
     description: "End-to-end feature flag system built as a monorepo: a REST API (Express + Prisma + MySQL + Redis) paired with a zero-dependency TypeScript SDK. Supports environment-scoped flags (dev/qa/prod), Redis caching for low-latency lookups, and a clean SDK API — isEnabled(), getFlag(), listFlags() — ready to drop into any Node.js project.",
     github: "https://github.com/Sandotech/feature-flag",
     image: "/projects/feature-flag.png",
-    tags: [TAGS.TYPESCRIPT, TAGS.NODEJS, TAGS.PRISMA, TAGS.REDIS, TAGS.NESTJS],
+    tags: [TAGS.TYPESCRIPT, TAGS.NODEJS, TAGS.PRISMA, TAGS.REDIS, TAGS.NEXTJS],
   },
   {
     title: "Tracli — Developer Time Tracking Ecosystem",
