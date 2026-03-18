@@ -8,7 +8,7 @@ const t = useTranslations(lang);
 
 <header class="flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto sticky top-0 z-10 backdrop-blur-sm px-4 relative">
   
-  <nav class="flex flex-row gap-x-10 opacity-80 text-white">
+  <nav class="hidden md:flex flex-row gap-x-10 opacity-80 text-white">
     <a href="#top" class="hover:text-yellow-200 transition">{t('nav.home')}</a>
     <a href="#about" class="hover:text-yellow-200 transition">{t('nav.about')}</a>
     <a href="#experience" class="hover:text-yellow-200 transition">{t('nav.experience')}</a>
@@ -16,7 +16,53 @@ const t = useTranslations(lang);
     <a href="mailto:dseosantos76@gmail.com" class="hover:text-yellow-200 transition">{t('nav.contact')}</a>
   </nav>
 
-  <div class="absolute right-4 xl:right-0">
+  <div class="absolute right-4 xl:right-0 flex items-center gap-4">
     <LanguagePicker />
+    <button id="menu-toggle" class="md:hidden text-white focus:outline-none" aria-label="Menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="fixed inset-0 bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] z-50 flex flex-col items-center justify-center hidden transition-opacity duration-300">
+    <button id="close-menu" class="absolute top-6 right-4 text-white focus:outline-none" aria-label="Close Menu">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <nav class="flex flex-col gap-y-8 text-2xl text-center text-white opacity-90">
+      <a href="#top" class="mobile-link hover:text-yellow-200 transition">{t('nav.home')}</a>
+      <a href="#about" class="mobile-link hover:text-yellow-200 transition">{t('nav.about')}</a>
+      <a href="#experience" class="mobile-link hover:text-yellow-200 transition">{t('nav.experience')}</a>
+      <a href="#projects" class="mobile-link hover:text-yellow-200 transition">{t('nav.projects')}</a>
+      <a href="mailto:dseosantos76@gmail.com" class="mobile-link hover:text-yellow-200 transition">{t('nav.contact')}</a>
+    </nav>
   </div>
 </header>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const closeMenu = document.getElementById('close-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  if (menuToggle && closeMenu && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+</script>
