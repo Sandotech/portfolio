@@ -1,0 +1,54 @@
+---
+import Badge from './Badge.astro';
+import SocialPill from './SocialPill.astro';
+import Linkedin from './icons/Linkedin.astro';
+import Github from './icons/Github.astro';
+import MailIcon from './icons/Mail.astro';
+import SectionContainer from './SectionContainer.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<SectionContainer class="py-44 pb-32">
+    <img 
+    class="rounded-full size-12 mb-4" 
+    src="https://avatars.githubusercontent.com/u/112042899?v=4"
+    alt="Diego photo"
+    />
+    <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
+        {t('hero.title')}
+        <a href="https://www.linkedin.com/in/sandotech/"
+        target="_blank" 
+        rel="noopener" 
+        class="flex justify-center items-center"
+    >
+        <Badge>{t('hero.badge')}</Badge>
+        </a>
+    </h1>
+    <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
+        <span>{t('hero.subtitle.experience')}</span>
+        <span>{t('hero.subtitle.design')}</span>
+        <span class="text-red-100/90">{t('hero.subtitle.location')}</span>
+        <span>{t('hero.subtitle.tech')}</span>
+    </h2>
+    <nav class="flex gap-4 mt-10 flex-wrap">
+        <SocialPill href="https://www.linkedin.com/in/sandotech/">
+            <Linkedin class="size-4 md:size-6"/>
+            {t('hero.linkedin')}
+        </SocialPill>
+        <SocialPill href="https://github.com/Sandotech">
+            <Github class="size-4 md:size-6"/>
+            {t('hero.github')}
+        </SocialPill>
+        <SocialPill href="mailto:dseosantos76@gmail.com">
+            <MailIcon class="size-4 md:size-6"/>
+            dseosantos76@gmail.com
+        </SocialPill>
+        <SocialPill href="/My_Resume.pdf" download="Diego Santos Resume.pdf">
+            <svg class="size-4 md:size-6"  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-cv"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M11 12.5a1.5 1.5 0 0 0 -3 0v3a1.5 1.5 0 0 0 3 0" /><path d="M13 11l1.5 6l1.5 -6" /></svg>
+            {t('hero.downloadCV')}
+        </SocialPill>
+    </nav>
+</SectionContainer>

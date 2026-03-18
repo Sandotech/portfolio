@@ -1,20 +1,16 @@
+---
+import { ABOUT } from '../data/about';
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const aboutData = ABOUT[lang];
+---
+
 <article class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
-  <div class="[&amp;>p]:mb-4 [&amp;>p>strong]:text-yellow-500 dark:[&amp;>p>strong]:text-yellow-100 [&amp;>p>strong]:font-normal [&amp;>p>strong]:font-mono text-pretty order-2 md:order-1 gap-3 flex flex-col">
-    <p>
-      My name is Diego, but most people call me <strong>Santos</strong>. I’m a <strong>Full Stack Engineer</strong> focused on building scalable backend systems and modern web applications using technologies like <strong>.NET, Node.js, React, and Angular</strong>.
-    </p>
-
-    <p>
-      I currently work as a <strong>Full Stack Engineer at Chicksgold</strong>, where I design and develop backend services, RESTful APIs, and transactional systems for a high-traffic digital marketplace. My work involves building scalable services with <strong>ASP.NET Core, MySQL, and cloud infrastructure across AWS and Azure</strong>.
-    </p>
-
-    <p>
-      Throughout my career, I’ve collaborated with startups across Latin America developing reliable backend systems, optimizing database performance, and implementing scalable architectures using <strong>microservices, cloud platforms, and modern JavaScript frameworks</strong>.
-    </p>
-
-    <p>
-      I’m passionate about <strong>clean architecture, performance optimization, and building software that scales</strong>. My goal is to create high-quality systems that solve real problems while continuously improving as an engineer.
-    </p>
+  <div class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1 gap-3 flex flex-col">
+    {aboutData.map(paragraph => (
+      <p set:html={paragraph} />
+    ))}
   </div>
   <img width="200" height="200" src="https://avatars.githubusercontent.com/u/112042899?v=4" alt="Diego Santos" class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 " style="object-position: 50% 50%">
 </article>

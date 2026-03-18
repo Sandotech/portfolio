@@ -1,0 +1,43 @@
+---
+const { currentLocale = 'en' } = Astro;
+const { pathname } = Astro.url;
+
+function getPath(lang: string) {
+  const currentPath = pathname;
+  if (lang === 'en') {
+     // Switch to English (remove /es prefix)
+     if (currentPath.startsWith('/es/')) {
+        return currentPath.replace('/es/', '/');
+     }
+     if (currentPath === '/es') {
+        return '/';
+     }
+     return currentPath;
+  } else {
+     // Switch to Spanish (add /es prefix)
+     if (currentPath.startsWith('/es/') || currentPath === '/es') {
+       return currentPath;
+     }
+     if (currentPath === '/') {
+        return '/es';
+     }
+     return `/es${currentPath}`;
+  }
+}
+---
+
+<div class="flex gap-x-2 text-white/80">
+    <a 
+        href={getPath('en')} 
+        class={`hover:text-yellow-200 transition ${currentLocale === 'en' ? 'text-yellow-200 font-bold' : ''}`}
+    >
+        EN
+    </a>
+    <span>|</span>
+    <a 
+        href={getPath('es')} 
+        class={`hover:text-yellow-200 transition ${currentLocale === 'es' ? 'text-yellow-200 font-bold' : ''}`}
+    >
+        ES
+    </a>
+</div>

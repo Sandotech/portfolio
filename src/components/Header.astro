@@ -1,11 +1,22 @@
-<header class="flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto sticky top-0 z-10 backdrop-blur-sm">
-  <span></span>
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import LanguagePicker from './LanguagePicker.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<header class="flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto sticky top-0 z-10 backdrop-blur-sm px-4 relative">
   
-  <nav class="flex flex-row gap-x-10 opacity-80">
-    <a href="#top" class="hover:text-yellow-200 transition">Home</a>
-    <a href="#about" class="hover:text-yellow-200 transition">About</a>
-    <a href="#experience" class="hover:text-yellow-200 transition">Experience</a>
-    <a href="#projects" class="hover:text-yellow-200 transition">Projects</a>
-    <a href="mailto:dseosantos76@gmail.com" class="hover:text-yellow-200 transition">Contact</a>
+  <nav class="flex flex-row gap-x-10 opacity-80 text-white">
+    <a href="#top" class="hover:text-yellow-200 transition">{t('nav.home')}</a>
+    <a href="#about" class="hover:text-yellow-200 transition">{t('nav.about')}</a>
+    <a href="#experience" class="hover:text-yellow-200 transition">{t('nav.experience')}</a>
+    <a href="#projects" class="hover:text-yellow-200 transition">{t('nav.projects')}</a>
+    <a href="mailto:dseosantos76@gmail.com" class="hover:text-yellow-200 transition">{t('nav.contact')}</a>
   </nav>
+
+  <div class="absolute right-4 xl:right-0">
+    <LanguagePicker />
+  </div>
 </header>
