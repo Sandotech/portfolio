@@ -1,0 +1,52 @@
+---
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import AboutMe from '../components/AboutMe.astro';
+import Skills from '../components/Skills.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import BriefCase from '../components/icons/BriefCase.astro';
+import DeviceLaptop from '../components/icons/device-laptop.astro';
+import Code from '../components/icons/Code.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<main class="px-4">
+    <Hero />
+    
+    <SectionContainer id="experience">
+        <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+            <BriefCase class="size-7"/>
+            {t('section.experience')}
+        </h2>
+        <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="projects">
+        <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+            <DeviceLaptop class="size-7"/>
+            {t('section.projects')}
+        </h2>
+        <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="skills">
+        <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+            <Code class="size-7"/>
+            {t('section.skills')}
+        </h2>
+        <Skills />
+    </SectionContainer>
+
+    <SectionContainer id="about">
+        <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+            {t('section.about')}
+        </h2>
+        <AboutMe/>
+    </SectionContainer>
+    <Footer />
+</main>
