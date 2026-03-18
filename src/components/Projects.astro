@@ -74,13 +74,6 @@ const TAGS = {
 
 const PROJECTS = [
   {
-    title: "Feature Flag Platform",
-    description: "End-to-end feature flag system built as a monorepo: a REST API (Express + Prisma + MySQL + Redis) paired with a zero-dependency TypeScript SDK. Supports environment-scoped flags (dev/qa/prod), Redis caching for low-latency lookups, and a clean SDK API — isEnabled(), getFlag(), listFlags() — ready to drop into any Node.js project.",
-    github: "https://github.com/Sandotech/feature-flag",
-    image: "/projects/feature-flag.png",
-    tags: [TAGS.TYPESCRIPT, TAGS.NODEJS, TAGS.PRISMA, TAGS.REDIS, TAGS.NEXTJS],
-  },
-  {
     title: "Tracli — Developer Time Tracking Ecosystem",
     description: "Full-stack developer tooling suite: a terminal-first CLI (Commander.js, offline-first, DDD) for frictionless work logging, an Express REST API backend for cloud sync, and a React + Tailwind landing page. The CLI is published to GitHub Packages and follows clean architecture with domain, application, infrastructure, and interface layers.",
     github: "https://github.com/Sandotech/tracli-cli",
@@ -88,18 +81,18 @@ const PROJECTS = [
     tags: [TAGS.TYPESCRIPT, TAGS.NODEJS, TAGS.REACT],
   },
   {
+    title: "Feature Flag Platform",
+    description: "End-to-end feature flag system built as a monorepo: a REST API (Express + Prisma + MySQL + Redis) paired with a zero-dependency TypeScript SDK. Supports environment-scoped flags (dev/qa/prod), Redis caching for low-latency lookups, and a clean SDK API — isEnabled(), getFlag(), listFlags() — ready to drop into any Node.js project.",
+    github: "https://github.com/Sandotech/feature-flag",
+    image: "/projects/feature-flag.png",
+    tags: [TAGS.TYPESCRIPT, TAGS.NODEJS, TAGS.PRISMA, TAGS.REDIS, TAGS.NEXTJS],
+  },
+  {
     title: "Authy — Auth Microservice",
     description: "Production-ready authentication microservice built with NestJS and TypeScript. Implements JWT + Passport.js for stateless auth, TypeORM with PostgreSQL for user persistence, and full unit/e2e test coverage. Dockerized for local development with a docker-compose Postgres setup.",
     github: "https://github.com/Sandotech/authy",
     image: "/projects/authy.png",
     tags: [TAGS.TYPESCRIPT, TAGS.NESTJS, TAGS.POSTGRESQL, TAGS.JWT],
-  },
-  {
-    title: "Event Manager — Civic Data Analyzer",
-    description: "Ruby tool that processes event registrations from CSV, calls the Google Civic Information API to retrieve local legislators, generates personalized thank-you letters via ERB templates, and reports peak registration hours and days. Demonstrates proficiency in Ruby, REST API integration, CSV data processing, and template rendering.",
-    github: "https://github.com/Sandotech/event_manager",
-    image: "/projects/event-manager.png",
-    tags: [TAGS.RUBY, TAGS.GOOGLE_CIVIC_INFORMATION_API, TAGS.CSV],
   },
 ]
 ---

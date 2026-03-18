@@ -1,5 +1,7 @@
 import BriefCaseIcon from './BriefCase.astro'
+import CodeIcon from './Code.astro'
 import CsvIcon from './Csv.astro'
+import DotNetIcon from './DotNet.astro'
 import ExpressIcon from './Express.astro'
 import GithubIcon from './Github.astro'
 import GoogleIcon from './Google.astro'
@@ -20,7 +22,9 @@ import DeviceLaptopIcon from './device-laptop.astro'
 
 export {
   BriefCaseIcon,
+  CodeIcon,
   CsvIcon,
+  DotNetIcon,
   ExpressIcon,
   GithubIcon,
   GoogleIcon,
