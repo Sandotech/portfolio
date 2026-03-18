@@ -17,15 +17,20 @@ const t = useTranslations(lang);
     src="https://avatars.githubusercontent.com/u/112042899?v=4"
     alt="Diego photo"
     />
-    <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
+    <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-col md:flex-row gap-4 pb-6 lg:pb-10 items-start md:items-center">
         {t('hero.title')}
-        <a href="https://www.linkedin.com/in/sandotech/"
-        target="_blank" 
-        rel="noopener" 
-        class="flex justify-center items-center"
-    >
-        <Badge>{t('hero.badge')}</Badge>
-        </a>
+        <div class="flex items-center gap-x-2">
+            <a href="https://www.linkedin.com/in/sandotech/"
+            target="_blank" 
+            rel="noopener" 
+            class="flex justify-center items-center hover:scale-105 transition"
+            >
+                <Badge>{t('hero.badge')}</Badge>
+            </a>
+            <Badge class="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+                {t('hero.badge.remote')}
+            </Badge>
+        </div>
     </h1>
     <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
         <span>{t('hero.subtitle.experience')}</span>
