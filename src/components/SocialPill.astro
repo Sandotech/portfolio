@@ -1,3 +1,11 @@
+---
+const { target, rel, download, ...anchorProps } = Astro.props
+
+const isDownload = download !== undefined && download !== false
+const resolvedTarget = isDownload ? target : (target ?? '_blank')
+const resolvedRel = resolvedTarget ? (rel ?? 'noopener noreferrer') : rel
+---
+
 <a 
     class={`
     bg-white/5
@@ -7,9 +15,10 @@
     text-xs md:text-base
     transition
     hover:scale-110 hover:bg-white/10`}
-    {...Astro.props}
-    target="_blank"
-    rel="noopener noreferrer"
+    {...anchorProps}
+    download={download}
+    target={resolvedTarget}
+    rel={resolvedRel}
     >
     <slot />
 </a>

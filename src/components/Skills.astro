@@ -1,0 +1,33 @@
+---
+import {
+  TypeScriptIcon, NodeJsIcon, NextJSIcon, ReactIcon, NestJSIcon,
+  PostgreSQLIcon, PrismaIcon, RedisIcon, RailsIcon, RubyIcon,
+  ExpressIcon, GithubIcon, DotNetIcon
+} from './icons/index.ts'
+
+const SKILLS = [
+  { name: ".NET", icon: DotNetIcon },
+  { name: "TypeScript", icon: TypeScriptIcon },
+  { name: "Node.js", icon: NodeJsIcon },
+  { name: "React", icon: ReactIcon },
+  { name: "Next.js", icon: NextJSIcon },
+  { name: "NestJS", icon: NestJSIcon },
+  { name: "PostgreSQL", icon: PostgreSQLIcon },
+  { name: "Redis", icon: RedisIcon },
+  { name: "Prisma", icon: PrismaIcon },
+  { name: "Express", icon: ExpressIcon },
+  { name: "Ruby on Rails", icon: RailsIcon },
+  { name: "Ruby", icon: RubyIcon },
+  { name: "Git/GitHub", icon: GithubIcon },
+]
+---
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+  {SKILLS.map(({ name, icon: Icon }) => (
+    <div class="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors group">
+      <div class="size-8 flex items-center justify-center bg-white/5 rounded-md p-1 group-hover:scale-110 transition-transform">
+        <Icon class="size-6" />
+      </div>
+      <span class="font-medium text-white/90">{name}</span>
+    </div>
+  ))}
+</div>
