@@ -1,6 +1,6 @@
 import { 
   RubyIcon, RailsIcon, GoogleIcon, CsvIcon, TypeScriptIcon, NodeJsIcon, NestJSIcon, ReactIcon, RedisIcon, 
-  PostgreSQLIcon, PrismaIcon, JWTIcon, NextJSIcon 
+  PostgreSQLIcon, PrismaIcon, JWTIcon, NextJSIcon, DotNetIcon
 } from '../components/icons'
 
 const TAGS = {
@@ -69,6 +69,11 @@ const TAGS = {
     class: "bg-black/80 text-white",
     icon: NextJSIcon
   },
+  DOTNET: {
+    name: "Dotnet",
+    class: "bg-slate-700/80 text-white",
+    icon: DotNetIcon
+  }
 }
 
 export const PROJECTS = {
@@ -81,18 +86,18 @@ export const PROJECTS = {
       tags: [TAGS.TYPESCRIPT, TAGS.NODEJS, TAGS.REACT],
     },
     {
+      title: "BlockBeat - Cryptocurrency Price Tracker",
+      description: "Cryptocurrency price tracker built with React and .NET through the CoinCap API. Features real-time price updates, historical charts, and a responsive design. The app allows users to search for their favorite cryptocurrencies and view detailed information about each one.",
+      github: "https://github.com/Sandotech/blockbeat-api",
+      image: "/projects/blockbeat.png",
+      tags: [TAGS.DOTNET, TAGS.REACT, TAGS.TYPESCRIPT],
+    },
+    {
       title: "Feature Flag Platform",
       description: "End-to-end feature flag system built as a monorepo: a REST API (Express + Prisma + MySQL + Redis) paired with a zero-dependency TypeScript SDK. Supports environment-scoped flags (dev/qa/prod), Redis caching for low-latency lookups, and a clean SDK API — isEnabled(), getFlag(), listFlags() — ready to drop into any Node.js project.",
       github: "https://github.com/Sandotech/feature-flag",
       image: "/projects/feature-flag.png",
       tags: [TAGS.TYPESCRIPT, TAGS.NODEJS, TAGS.PRISMA, TAGS.REDIS, TAGS.NEXTJS],
-    },
-    {
-      title: "Authy — Auth Microservice",
-      description: "Production-ready authentication microservice built with NestJS and TypeScript. Implements JWT + Passport.js for stateless auth, TypeORM with PostgreSQL for user persistence, and full unit/e2e test coverage. Dockerized for local development with a docker-compose Postgres setup.",
-      github: "https://github.com/Sandotech/authy",
-      image: "/projects/authy.png",
-      tags: [TAGS.TYPESCRIPT, TAGS.NESTJS, TAGS.POSTGRESQL, TAGS.JWT],
     },
   ],
   es: [
@@ -104,18 +109,18 @@ export const PROJECTS = {
       tags: [TAGS.TYPESCRIPT, TAGS.NODEJS, TAGS.REACT],
     },
     {
+      title: "BlockBeat - Rastreador de Precios de Criptomonedas",
+      description: "Rastreador de precios de criptomonedas construido con React y .NET a través de la API de CoinCap. Incluye actualizaciones de precios en tiempo real, gráficos históricos y un diseño responsivo. La aplicación permite a los usuarios buscar sus criptomonedas favoritas y ver información detallada sobre cada una.",
+      github: "https://github.com/Sandotech/blockbeat-api",
+      image: "/projects/blockbeat.png",
+      tags: [TAGS.DOTNET, TAGS.REACT, TAGS.TYPESCRIPT],
+    },
+    {
       title: "Plataforma de Feature Flags",
       description: "Sistema de feature flags end-to-end construido como un monorepo: una API REST (Express + Prisma + MySQL + Redis) junto con un SDK de TypeScript sin dependencias. Soporta flags por entorno (dev/qa/prod), caché de Redis para búsquedas de baja latencia, y una API limpia en el SDK — isEnabled(), getFlag(), listFlags() — lista para usar en cualquier proyecto Node.js.",
       github: "https://github.com/Sandotech/feature-flag",
       image: "/projects/feature-flag.png",
       tags: [TAGS.TYPESCRIPT, TAGS.NODEJS, TAGS.PRISMA, TAGS.REDIS, TAGS.NEXTJS],
-    },
-    {
-      title: "Authy — Microservicio de Autenticación",
-      description: "Microservicio de autenticación listo para producción construido con NestJS y TypeScript. Implementa JWT + Passport.js para autenticación sin estado, TypeORM con PostgreSQL para persistencia de usuarios, y cobertura completa de pruebas unitarias/e2e. Dockerizado para desarrollo local con una configuración de Postgres en docker-compose.",
-      github: "https://github.com/Sandotech/authy",
-      image: "/projects/authy.png",
-      tags: [TAGS.TYPESCRIPT, TAGS.NESTJS, TAGS.POSTGRESQL, TAGS.JWT],
     },
   ]
 };
